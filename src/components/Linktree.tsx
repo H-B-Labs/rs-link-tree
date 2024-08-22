@@ -17,7 +17,7 @@ const links: LinktreeItem[] = [
     },
     {
         label: 'Instagram',
-        url: 'https://instagram.com',
+        url: 'https://www.instagram.com/goroguesolar/',
         imgSrc: '/icons8-instagram-50.png',
         imgAlt: 'Instagram Icon',
     },
@@ -29,16 +29,16 @@ const links: LinktreeItem[] = [
     },
     {
         label: 'Facebook',
-        url: 'https://facebook.com',
+        url: 'https://www.facebook.com/profile.php?id=61561238321678',
         imgSrc: '/facebook.png',
         imgAlt: 'Facebook Icon',
     },
-    {
+    /*{
         label: 'LinkedIn',
         url: 'https://linkedin.com',
         imgSrc: '/linkedin.png',
         imgAlt: 'LinkedIn Icon',
-    },
+    },*/
 ];
 
 const Linktree: React.FC = () => {

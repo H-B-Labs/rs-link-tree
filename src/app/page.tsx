@@ -37,11 +37,11 @@ export default function Home() {
           <Image
             src="/logo.png"
             alt="Logo"
-            width={200} // Set the desired width
-            height={200} // Set the desired height
+            width={150} // Adjusted width for mobile
+            height={150} // Adjusted height for mobile
             className="mb-8"
           />
-          <h1 className="mb-4 text-4xl font-extrabold text-[#A52A2A] drop-shadow-lg">
+          <h1 className="mb-4 text-3xl font-extrabold text-center text-[#A52A2A] drop-shadow-lg md:text-4xl">
             Schedule a Quote Today!
           </h1>
 
@@ -55,10 +55,10 @@ export default function Home() {
             </button>
           )}
 
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-xs md:max-w-md">
             {!isFormSubmitted && <ContactForm onSubmit={handleFormSubmit} />}
             {isFormSubmitted && (
-              <div className="w-full max-w-md space-y-4">
+              <div className="w-full space-y-4">
                 <Linktree />
               </div>
             )}

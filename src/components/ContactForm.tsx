@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState } from 'react';
 
 interface ContactFormProps {
@@ -20,12 +21,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState<FormErrors>({});
+    const [result, setResult] = useState('');
 
     const validateEmail = (email: string) => {
         return /\S+@\S+\.\S+/.test(email);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         let currentErrors: FormErrors = {};
 
@@ -38,7 +40,35 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
         setErrors(currentErrors);
 
         if (Object.keys(currentErrors).length === 0) {
-            console.log({ name, email, phone, subject, message });
+            setResult("Sending....");
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("email", email);
+            formData.append("phone", phone);
+            formData.append("subject", subject);
+            formData.append("message", message);
+            formData.append("access_key", "5b5a713f-aa16-4eee-87fe-3481fd4e47a6");
+
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    setResult("Form Submitted Successfully");
+                    console.log("Success", data);
+                    (e.target as HTMLFormElement).reset();
+                } else {
+                    console.log("Error", data);
+                    setResult(data.message);
+                }
+            } catch (error) {
+                console.error("Error submitting form", error);
+                setResult("An error occurred while submitting the form.");
+            }
 
             // Optionally trigger the onSubmit callback
             if (onSubmit) {
@@ -115,6 +145,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
             <button type="submit" className="w-full px-4 py-2 text-white bg-[#A52A2A] rounded-lg hover:bg-opacity-90 transition-colors">
                 Send
             </button>
+            {result && <p className="mt-4 text-sm text-green-500">{result}</p>}
         </form>
     );
 };
