@@ -1,12 +1,12 @@
-import React from 'react';
-import Image from 'next/image';
+import React from 'react'
+import Image from 'next/image'
 
 type LinktreeItem = {
-    label: string;
-    url: string;
-    imgSrc: string;
-    imgAlt: string;
-};
+    label: string
+    url: string
+    imgSrc: string
+    imgAlt: string
+}
 
 const links: LinktreeItem[] = [
     {
@@ -22,14 +22,14 @@ const links: LinktreeItem[] = [
         imgAlt: 'Instagram Icon',
     },
     {
-        label: 'Twitter',
+        label: 'X',
         url: 'https://x.com/GoRogueSolar',
-        imgSrc: '/twitter.png',
-        imgAlt: 'Twitter Icon',
+        imgSrc: '/x-50.png',
+        imgAlt: 'X Icon',
     },
     {
         label: 'Facebook',
-        url: 'https://www.facebook.com/profile.php?id=61561238321678',
+        url: 'https://www.facebook.com/share/aqowFF6EE39bLKXg/?mibextid=LQQJ4d',
         imgSrc: '/facebook.png',
         imgAlt: 'Facebook Icon',
     },
@@ -39,7 +39,7 @@ const links: LinktreeItem[] = [
         imgSrc: '/linkedin.png',
         imgAlt: 'LinkedIn Icon',
     },*/
-];
+]
 
 const Linktree: React.FC = () => {
     return (
@@ -64,7 +64,7 @@ const Linktree: React.FC = () => {
                 </a>
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default Linktree;
+export default Linktree
