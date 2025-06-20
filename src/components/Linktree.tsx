@@ -33,6 +33,12 @@ const links: LinktreeItem[] = [
         imgSrc: '/facebook.png',
         imgAlt: 'Facebook Icon',
     },
+    {
+        label: 'TikTok',
+        url: 'https://www.tiktok.com/@goroguesolar?_t=ZP-8xHvbVLZ5GI&_r=1',
+        imgSrc: '/icons8-tiktok-logo-50.png', // Add tiktok.png to your /public folder
+        imgAlt: 'TikTok Icon',
+    },
     /*{
         label: 'LinkedIn',
         url: 'https://linkedin.com',
